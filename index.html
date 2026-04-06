@@ -1,0 +1,199 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"
+    />
+    <meta
+      name="description"
+      content="Home to a disruptive game changer in the making"
+    />
+    <meta name="author" content="Bezt Labs" />
+
+    <!-- Add manifest -->
+    <link rel="manifest" href="./manifest.json" />
+    <!-- Tell the browser it's a PWA -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <!-- Tell iOS it's a PWA -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- Make sure theme-color is defined -->
+    <meta name="theme-color" content="#ffffff" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:title" content="Welcome to Bezt Labs" />
+    <meta
+      property="og:description"
+      content="Home to a disruptive game changer in the making"
+    />
+    <meta property="og:url" content="https://bezt.in" />
+    <meta
+      property="og:image"
+      content="https://bezt.in/assets/img/og-image.jpeg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:url" content="https://bezt.in/" />
+    <meta property="twitter:title" content="Welcome to Bezt Labs" />
+    <meta
+      property="twitter:description"
+      content="Home to a disruptive game changer in the making"
+    />
+    <meta
+      property="twitter:image"
+      content="https://bezt.in/assets/img/og-image.jpeg"
+    />
+
+    <title>Welcome to Bezt Labs</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    <link href="https://www.bezt.in/css/styles.css" rel="stylesheet" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Baloo+2"
+    />
+    <style>
+      .masthead {
+        flex-direction: column;
+        user-select: none;
+        font-family: "Baloo 2";
+      }
+      .logo {
+        position: relative;
+        top: -123px;
+      }
+      .subtitle {
+        color: #0aa8ab;
+        line-height: 24px;
+      }
+      .address {
+        font-size: 16px !important;
+        line-height: 20px;
+        color: #1e8183;
+      }
+      .copyright {
+        position: fixed;
+        bottom: 20px;
+        color: #007173;
+      }
+
+      @media (max-width: 992px) {
+        .masthead .masthead-content h1 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 992px) {
+        .masthead .masthead-content {
+          padding-bottom: 1rem;
+        }
+
+        .logo {
+          top: -50px;
+          img {
+            width: 100px;
+          }
+        }
+        .subtitle {
+          margin-bottom: 20px !important;
+        }
+        .copyright {
+          color: #54a9ab;
+        }
+      }
+
+      @media (min-width: 992px) {
+        .logo {
+          top: -70px;
+        }
+        .subtitle {
+          margin-bottom: 3rem;
+        }
+      }
+
+      @media (max-height: 485px) and (orientation: landscape),
+        (max-height: 610px) and (orientation: portrait) {
+        .copyright {
+          position: static;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <video
+      class="bg-video"
+      playsinline="playsinline"
+      autoplay="autoplay"
+      muted="muted"
+      loop="loop"
+    >
+      <source
+        src="https://video-previews.elements.envatousercontent.com/b446634b-33ec-4569-b16a-c8b8d30f3021/watermarked_preview/watermarked_preview.mp4"
+        type="video/mp4"
+      />
+    </video>
+
+    <div class="masthead">
+      <div class="masthead-content text-white">
+        <div class="container-fluid px-4 px-lg-0">
+          <div class="logo">
+            <img
+              src="./assets/img/bezt-logo-white.png"
+              width="130"
+              alt="bezt"
+            />
+          </div>
+          <h1 class="lh-sm mb-4">
+            Home to a disruptive <br />game changer in the making
+          </h1>
+          <p class="subtitle">
+            We are currently a stealth mode startup for obvious reasons. Do
+            reach out to us if you want to know more.
+          </p>
+          <p>
+            Say hello! <img src="./assets/img/email.png" style="opacity: 0.9" />
+          </p>
+          <p class="address">
+            <strong>Regd. Address:</strong> <br />
+            BHIVE, #112, AKR Tech Park <br />Bengaluru - 560 068, INDIA
+          </p>
+
+          <div class="copyright">
+            &copy; <span id="year"></span>. Bezt Labs Pvt. Ltd.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const date = new Date();
+      const year = date.getFullYear();
+      document.getElementById("year").innerHTML = year;
+    </script>
+    <script>
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", function () {
+          navigator.serviceWorker
+            .register("/js/service-worker.js")
+            .then(
+              function (registration) {
+                console.log(
+                  "ServiceWorker registration successful with scope: ",
+                  registration.scope
+                );
+              },
+              function (err) {
+                console.log("ServiceWorker registration failed: ", err);
+              }
+            )
+            .catch(function (err) {
+              console.log(err);
+            });
+        });
+      } else {
+        console.log("service worker is not supported");
+      }
+    </script>
+  </body>
+</html>
